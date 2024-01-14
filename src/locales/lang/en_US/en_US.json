@@ -1,4 +1,21 @@
 {
+  "common": {
+    "okText": "OK",
+    "closeText": "Close",
+    "cancelText": "Cancel",
+    "loadingText": "Loading...",
+    "saveText": "Save",
+    "delText": "Delete",
+    "resetText": "Reset",
+    "searchText": "Search",
+    "queryText": "Search",
+    "inputText": "Please enter",
+    "chooseText": "Please choose",
+    "redo": "Refresh",
+    "back": "Back",
+    "light": "Light",
+    "dark": "Dark"
+  },
   "sys": {
     "api": {
       "operationSuccess": "Operation Success",
@@ -11,7 +28,6 @@
       "apiRequestFailed": "The interface request failed, please try again later!",
       "networkException": "network anomaly",
       "networkExceptionMsg": "Please check if your network connection is normal! The network is abnormal",
-
       "errMsg401": "The user does not have permission (token, user name, password error)!",
       "errMsg403": "The user is authorized, but access is forbidden!",
       "errMsg404": "Network request error, the resource was not found!",
@@ -31,7 +47,6 @@
       "signInFormTitle": "Sign in",
       "signUpFormTitle": "Sign up",
       "forgetFormTitle": "Reset password",
-
       "signInPrimaryTitle": "Hi, Welcome Back",
       "signInSecondTitle": "Backstage management system",
       "signInTitle": "",
@@ -39,7 +54,6 @@
       "policy": "I agree to the xxx Privacy Policy",
       "scanSign": "scanning the code to complete the login",
       "forgetFormSecondTitle": "Please enter the email address associated with your account and We will email you a link to reset your password.",
-
       "loginButton": "Sign in",
       "registerButton": "Sign up",
       "rememberMe": "Remember me",
@@ -48,10 +62,8 @@
       "sendSmsButton": "Send SMS code",
       "sendSmsText": "Reacquire in {{second}}s",
       "sendEmailButton": "Send Email",
-
       "loginSuccessTitle": "Login successful",
       "loginSuccessDesc": "Welcome back",
-
       "accountPlaceholder": "Please input username",
       "passwordPlaceholder": "Please input password",
       "confirmPasswordPlaceholder": "Please input confirm password",
@@ -60,14 +72,12 @@
       "mobilePlaceholder": "Please input mobile",
       "policyPlaceholder": "Register after checking",
       "diffPwd": "The two passwords are inconsistent",
-
       "userName": "Username",
       "password": "Password",
       "confirmPassword": "Confirm Password",
       "email": "Email",
       "smsCode": "SMS code",
       "mobile": "Mobile",
-
       "registerAndAgree": "By signing up, I agree to",
       "termsOfService": " Terms of service ",
       "privacyPolicy": " Privacy policy ",
@@ -133,11 +143,51 @@
       "calendar": "Calendar",
       "kanban": "Kanban",
       "error": {
-        "index": "Error Page",
         "403": "403",
         "404": "404",
-        "500": "500"
+        "500": "500",
+        "index": "Error Page"
       }
     }
-  }
+  },
+  "sys.api.apiRequestFailed": "apiRequestFailed",
+  "sys.api.errorMessage": "errorMessage",
+  "sys.login.loginSuccessTitle": "loginSuccessTitle",
+  "sys.login.loginSuccessDesc": "loginSuccessDesc",
+  "sys.menu.dashboard": "dashboard",
+  "sys.menu.user.profile": "profile",
+  "sys.menu.user.account": "account",
+  "sys.login.logout": "logout",
+  "sys.login.signInSecondTitle": "signInSecondTitle",
+  "sys.login.signInFormTitle": "signInFormTitle",
+  "sys.login.userName": "userName",
+  "sys.login.password": "password",
+  "sys.login.accountPlaceholder": "accountPlaceholder",
+  "sys.login.passwordPlaceholder": "passwordPlaceholder",
+  "sys.login.rememberMe": "rememberMe",
+  "sys.login.forgetPassword": "forgetPassword",
+  "sys.login.loginButton": "loginButton",
+  "sys.login.mobileSignInFormTitle": "mobileSignInFormTitle",
+  "sys.login.qrSignInFormTitle": "qrSignInFormTitle",
+  "sys.login.signUpFormTitle": "signUpFormTitle",
+  "sys.login.otherSignIn": "otherSignIn",
+  "sys.login.mobile": "mobile",
+  "sys.login.mobilePlaceholder": "mobilePlaceholder",
+  "sys.login.smsCode": "smsCode",
+  "sys.login.sendSmsButton": "sendSmsButton",
+  "sys.login.sendSmsText": "sendSmsText",
+  "sys.login.scanSign": "scanSign",
+  "sys.login.emaildPlaceholder": "emaildPlaceholder",
+  "sys.login.email": "email",
+  "sys.login.confirmPasswordPlaceholder": "confirmPasswordPlaceholder",
+  "sys.login.diffPwd": "diffPwd",
+  "sys.login.confirmPassword": "confirmPassword",
+  "sys.login.registerButton": "registerButton",
+  "sys.login.registerAndAgree": "registerAndAgree",
+  "sys.login.termsOfService": "termsOfService",
+  "sys.login.privacyPolicy": "privacyPolicy",
+  "sys.login.forgetFormTitle": "forgetFormTitle",
+  "sys.login.forgetFormSecondTitle": "forgetFormSecondTitle",
+  "sys.login.sendEmailButton": "sendEmailButton",
+  "sys.login.backSignIn": "backSignIn"
 }

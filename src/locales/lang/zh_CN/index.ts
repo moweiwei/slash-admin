@@ -1,7 +1,5 @@
-import common from './common.json';
-import sys from './sys.json';
+import zh_CN from './zh_CN.json';
 
 export default {
-  ...common,
-  ...sys,
+  ...zh_CN,
 };

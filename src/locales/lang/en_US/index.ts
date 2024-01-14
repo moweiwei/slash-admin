@@ -1,7 +1,5 @@
-import common from './common.json';
-import sys from './sys.json';
+import en_US from './en_US.json';
 
 export default {
-  ...common,
-  ...sys,
+  ...en_US,
 };
