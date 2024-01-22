@@ -363,3 +363,21 @@ video {
 [hidden] {
   display: none;
 }
+
+@keyframes clip {
+  from {
+    clip-path: ellipse(120px 120px at 100% 0);
+  }
+
+  to{
+    clip-path: ellipse(100% 100% at 100% 0);
+  }
+}
+
+::view-transition-old(root){
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: clip .5s ease-in;
+}
