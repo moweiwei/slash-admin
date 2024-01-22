@@ -17,6 +17,10 @@ const PAGE_NOT_FOUND_ROUTE: AppRouteObject = {
   path: '*',
   element: <Navigate to="/404" replace />,
 };
+const bisScreenRoute: AppRouteObject = {
+  path: '/bigScreen',
+  Component: lazy(() => import('@/pages/bigScreen')),
+};
 
 export default function Router() {
   const permissionRoutes = usePermissionRoutes();
@@ -30,7 +34,7 @@ export default function Router() {
     children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...permissionRoutes],
   };
 
-  const routes = [LoginRoute, asyncRoutes, ErrorRoutes, PAGE_NOT_FOUND_ROUTE];
+  const routes = [bisScreenRoute, LoginRoute, asyncRoutes, ErrorRoutes, PAGE_NOT_FOUND_ROUTE];
 
   const router = createHashRouter(routes as unknown as RouteObject[]);
 

@@ -5,19 +5,19 @@ import {
   Col,
   Form,
   Input,
-  InputNumber,
   Modal,
   Popconfirm,
-  Radio,
   Row,
   Select,
   Space,
+  InputProps,
 } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import { TableRowSelection } from 'antd/es/table/interface';
 import { useEffect, useState } from 'react';
 
 import orgService from '@/api/services/orgService';
+import FormItems from '@/components/formItems';
 import { IconButton, Iconify } from '@/components/icon';
 import ProTag from '@/theme/antd/components/tag';
 
@@ -195,21 +195,77 @@ type OrganizationModalProps = {
   onCancel: VoidFunction;
 };
 
+function WrappedInput(props: InputProps) {
+  return (
+    <div>
+      <h3>I am a wrapped Input</h3>
+      <Input {...props} />
+    </div>
+  );
+}
+
 function OrganizationModal({ title, show, formValue, onOk, onCancel }: OrganizationModalProps) {
   const [form] = Form.useForm();
   useEffect(() => {
     form.setFieldsValue({ ...formValue });
   }, [formValue, form]);
+
+  const formItems = [
+    { name: 'name', label: '用户', type: 'label', content: 'mo' },
+    { name: 'email', label: '邮箱', extra: 'ddddd' },
+    {
+      name: 'select',
+      label: '单选',
+      type: 'select',
+      props: {
+        options: [
+          { label: 'Option 1', value: '1' },
+          { label: 'Option 2', value: '2' },
+        ],
+      },
+    },
+    { name: 'divider', type: 'divider' },
+    { name: 'number', label: '数子', type: 'input-number' },
+    { name: 'number2', label: 'Wrapped', component: <WrappedInput /> },
+    { name: 'switch', label: 'Switch', type: 'switch' },
+    {
+      name: 'radio',
+      label: 'Radio',
+      type: 'radio-group',
+      props: {
+        options: [
+          { label: 'Apple', value: 'Apple' },
+          { label: 'Pear', value: 'Pear' },
+        ],
+        optionType: 'button',
+      },
+    },
+    { name: 'textarea', label: 'Textarea', type: 'textarea' },
+    { name: 'checkbox', label: 'Checkbox', type: 'checkbox' },
+    {
+      name: 'slider',
+      label: 'Slider',
+      type: 'slider',
+      props: {
+        min: 0,
+        max: 100,
+        step: 1,
+      },
+    },
+  ];
+
   return (
-    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel}>
+    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel} forceRender>
       <Form
-        initialValues={formValue}
+        initialValues={{ slider: 20 }}
         form={form}
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 18 }}
         layout="horizontal"
       >
-        <Form.Item<Organization> label="Name" name="name" required>
+        <FormItems formItems={formItems} />
+
+        {/* <Form.Item<Organization> label="Name" name="name" required>
           <Input />
         </Form.Item>
         <Form.Item<Organization> label="Order" name="order" required>
@@ -223,7 +279,7 @@ function OrganizationModal({ title, show, formValue, onOk, onCancel }: Organizat
         </Form.Item>
         <Form.Item<Organization> label="Desc" name="desc">
           <Input.TextArea />
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </Modal>
   );

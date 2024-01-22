@@ -4,13 +4,14 @@ module.exports = {
   /* 解析器 */
   parser: '@typescript-eslint/parser', // 指定ESLint解析器
   parserOptions: {
-    project: './tsconfig.json', // tsconfig.json的路径
+    project: ['./tsconfig.json', './tsconfig.node.json'], // tsconfig.json的路径
     ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true, // 启用JSX
     },
     extraFileExtensions: ['.json'],
+    tsconfigRootDir: './',
   },
   settings: {
     // 识别 @ # alias
@@ -115,7 +116,7 @@ module.exports = {
       },
     ],
 
-    'unused-imports/no-unused-imports-ts': 'warn',
+    // 'unused-imports/no-unused-imports-ts': 'warn', // 未使用的导入，保存会自动移除
     'unused-imports/no-unused-vars-ts': [
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
@@ -123,10 +124,7 @@ module.exports = {
 
     '@typescript-eslint/no-unused-vars': [
       'warn',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -141,4 +139,5 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
+  // ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts'],
 };
