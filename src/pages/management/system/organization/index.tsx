@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useRequest } from 'ahooks';
 import {
   Button,
   Card,
@@ -91,10 +91,7 @@ export default function OrganizationPage() {
     },
   };
 
-  const { data } = useQuery({
-    queryKey: ['orgs'],
-    queryFn: orgService.getOrgList,
-  });
+  const { data } = useRequest(orgService.getOrgList);
 
   const onSearchFormReset = () => {
     searchForm.resetFields();
@@ -201,7 +198,7 @@ function OrganizationModal({ title, show, formValue, onOk, onCancel }: Organizat
     form.setFieldsValue({ ...formValue });
   }, [formValue, form]);
   return (
-    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel}>
+    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel} forceRender>
       <Form
         initialValues={formValue}
         form={form}

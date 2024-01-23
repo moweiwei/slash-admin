@@ -142,8 +142,12 @@ export default function SettingButton() {
         open={drawerOpen}
         closable={false}
         width={280}
-        bodyStyle={bodyStyle}
-        maskStyle={{ backgroundColor: 'transparent' }}
+        styles={{
+          body: bodyStyle,
+          mask: {
+            backgroundColor: 'transparent',
+          },
+        }}
         style={style}
         extra={
           <IconButton onClick={() => setDrawerOpen(false)} className="h-9 w-9 hover:scale-105">

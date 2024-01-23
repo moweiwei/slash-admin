@@ -46,8 +46,12 @@ export default function NoticeButton() {
         open={drawerOpen}
         closable={false}
         width={420}
-        bodyStyle={bodyStyle}
-        maskStyle={{ backgroundColor: 'transparent' }}
+        styles={{
+          body: bodyStyle,
+          mask: {
+            backgroundColor: 'transparent',
+          },
+        }}
         style={style}
         extra={
           <IconButton
