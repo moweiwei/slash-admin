@@ -1,23 +1,11 @@
-import { useRequest } from 'ahooks';
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Input,
-  InputNumber,
-  Modal,
-  Popconfirm,
-  Radio,
-  Row,
-  Select,
-  Space,
-} from 'antd';
+import { useQuery } from '@tanstack/react-query';
+import { Button, Card, Col, Form, Input, Modal, Popconfirm, Row, Select, Space } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import { TableRowSelection } from 'antd/es/table/interface';
 import { useEffect, useState } from 'react';
 
 import orgService from '@/api/services/orgService';
+import FormItem from '@/components/formItem';
 import { IconButton, Iconify } from '@/components/icon';
 import ProTag from '@/theme/antd/components/tag';
 
@@ -91,7 +79,11 @@ export default function OrganizationPage() {
     },
   };
 
-  const { data } = useRequest(orgService.getOrgList);
+  // const { data } = useRequest(orgService.getOrgList);
+  const { data } = useQuery({
+    queryKey: ['orgs'],
+    queryFn: orgService.getOrgList,
+  });
 
   const onSearchFormReset = () => {
     searchForm.resetFields();
@@ -197,6 +189,17 @@ function OrganizationModal({ title, show, formValue, onOk, onCancel }: Organizat
   useEffect(() => {
     form.setFieldsValue({ ...formValue });
   }, [formValue, form]);
+
+  const formItems = [
+    { name: 'name', label: '用户', type: 'label', content: 'mo' },
+    {
+      name: 'email',
+      label: '邮箱',
+      // type: 'input',
+    },
+  ];
+
+  console.log('render list');
   return (
     <Modal title={title} open={show} onOk={onOk} onCancel={onCancel} forceRender>
       <Form
@@ -206,7 +209,11 @@ function OrganizationModal({ title, show, formValue, onOk, onCancel }: Organizat
         wrapperCol={{ span: 18 }}
         layout="horizontal"
       >
-        <Form.Item<Organization> label="Name" name="name" required>
+        {formItems.map((it, index) => (
+          <FormItem key={index} {...it} />
+        ))}
+
+        {/* <Form.Item<Organization> label="Name" name="name" required>
           <Input />
         </Form.Item>
         <Form.Item<Organization> label="Order" name="order" required>
@@ -220,7 +227,7 @@ function OrganizationModal({ title, show, formValue, onOk, onCancel }: Organizat
         </Form.Item>
         <Form.Item<Organization> label="Desc" name="desc">
           <Input.TextArea />
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </Modal>
   );

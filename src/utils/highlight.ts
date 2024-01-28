@@ -7,6 +7,7 @@ import hljs from 'highlight.js';
 declare global {
   interface Window {
     hljs: any;
+    t: (key: string) => string;
   }
 
   interface Document {
