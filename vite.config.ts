@@ -6,6 +6,8 @@ import { defineConfig } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import gitInfoPlugin from './src/plugins/vite-plugin-git-info';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
@@ -29,6 +31,7 @@ export default defineConfig({
     visualizer({
       open: false,
     }),
+    gitInfoPlugin(),
   ],
   server: {
     // 自动打开浏览器

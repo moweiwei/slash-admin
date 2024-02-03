@@ -115,7 +115,7 @@ module.exports = {
       },
     ],
 
-    'unused-imports/no-unused-imports-ts': 'warn',
+    // 'unused-imports/no-unused-imports-ts': 'warn', // 未使用的导入，保存会自动移除
     'unused-imports/no-unused-vars-ts': [
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
