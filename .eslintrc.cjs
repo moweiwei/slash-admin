@@ -4,13 +4,14 @@ module.exports = {
   /* 解析器 */
   parser: '@typescript-eslint/parser', // 指定ESLint解析器
   parserOptions: {
-    project: './tsconfig.json', // tsconfig.json的路径
+    project: ['./tsconfig.json', './tsconfig.node.json'], // tsconfig.json的路径
     ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true, // 启用JSX
     },
     extraFileExtensions: ['.json'],
+    tsconfigRootDir: './',
   },
   settings: {
     // 识别 @ # alias
@@ -138,4 +139,5 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
+  // ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts'],
 };

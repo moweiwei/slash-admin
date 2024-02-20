@@ -6,7 +6,7 @@ const LAST_COMMIT_MESSAGE = 'git log -1 --pretty=%B'; // 获取最后一次提�
 const LAST_COMMIT_TIME = 'git log -1 --pretty=%cd'; // 获取最后一次提交时间
 const LAST_COMMIT_AUTHOR = 'git log -1 --pretty=%an'; // 获取最后一次提交者
 
-const runGitCommand = async (command) => {
+const runGitCommand = async (command: string) => {
   try {
     const result = await execSync(command).toString().trim();
     return result;
@@ -34,7 +34,7 @@ const getGitInfo = async () => {
 const plugin = () => {
   return {
     name: 'vite-plugin-git-info',
-    async transformIndexHtml(html) {
+    async transformIndexHtml(_html: string) {
       const res = await getGitInfo();
       // 在 head 标签中插入script标签
       return [
