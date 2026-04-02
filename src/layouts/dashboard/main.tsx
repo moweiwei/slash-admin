@@ -5,7 +5,6 @@ import Page403 from "@/pages/sys/error/Page403";
 import { useSettings } from "@/store/settingStore";
 import { cn } from "@/utils";
 import { flattenTrees } from "@/utils/tree";
-import { clone, concat } from "ramda";
 import { Suspense } from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router";
 import { backendNavData } from "./nav/nav-data/nav-data-backend";
@@ -21,10 +20,24 @@ function findAuthByPath(path: string): string[] {
 	return foundItem?.auth || [];
 }
 
-const navData = GLOBAL_CONFIG.routerMode === "frontend" ? clone(frontendNavData) : backendNavData;
+function cloneNavData<T>(data: T): T {
+	if (Array.isArray(data)) {
+		return data.map((item) => cloneNavData(item)) as T;
+	}
+	if (data !== null && typeof data === "object" && Object.getPrototypeOf(data) === Object.prototype) {
+		const result: Record<string, unknown> = {};
+		for (const key of Object.keys(data)) {
+			result[key] = cloneNavData((data as Record<string, unknown>)[key]);
+		}
+		return result as T;
+	}
+	return data;
+}
+
+const navData = GLOBAL_CONFIG.routerMode === "frontend" ? cloneNavData(frontendNavData) : backendNavData;
 const allItems = navData.reduce((acc: any[], group) => {
 	const flattenedItems = flattenTrees(group.items);
-	return concat(acc, flattenedItems);
+	return [...acc, ...flattenedItems];
 }, []);
 
 const Main = () => {

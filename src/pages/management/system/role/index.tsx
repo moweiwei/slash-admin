@@ -1,4 +1,4 @@
-// import { ROLE_LIST } from "@/_mock/assets";
+// import { ROLE_LIST } from "@/_mock/assets-permission";
 import { Icon } from "@/components/icon";
 import { Badge } from "@/ui/badge";
 import { Button } from "@/ui/button";
@@ -48,7 +48,11 @@ export default function RolePage() {
 			dataIndex: "status",
 			align: "center",
 			width: 120,
-			render: (status) => <Badge variant={status === BasicStatus.DISABLE ? "error" : "success"}>{status === BasicStatus.DISABLE ? "Disable" : "Enable"}</Badge>,
+			render: (status) => (
+				<Badge variant={status === BasicStatus.DISABLE ? "error" : "success"}>
+					{status === BasicStatus.DISABLE ? "Disable" : "Enable"}
+				</Badge>
+			),
 		},
 		{ title: "Desc", dataIndex: "desc" },
 		{
@@ -99,7 +103,14 @@ export default function RolePage() {
 				</div>
 			</CardHeader>
 			<CardContent>
-				<Table rowKey="id" size="small" scroll={{ x: "max-content" }} pagination={false} columns={columns} dataSource={ROLES} />
+				<Table
+					rowKey="id"
+					size="small"
+					scroll={{ x: "max-content" }}
+					pagination={false}
+					columns={columns}
+					dataSource={ROLES}
+				/>
 			</CardContent>
 			<RoleModal {...roleModalPros} />
 		</Card>

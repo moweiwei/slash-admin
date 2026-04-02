@@ -1,0 +1,408 @@
+{
+	"version": "1.0.0",
+	"lastScanned": 1775144121484,
+	"projectRoot": "/Users/moweiwei/github/moweiwei2025/slash-admin",
+	"techStack": {
+		"languages": [
+			{
+				"name": "JavaScript/TypeScript",
+				"version": "20.*",
+				"confidence": "high",
+				"markers": ["package.json"]
+			},
+			{
+				"name": "TypeScript",
+				"version": null,
+				"confidence": "high",
+				"markers": ["tsconfig.json"]
+			}
+		],
+		"frameworks": [
+			{
+				"name": "react",
+				"version": "19.1.0",
+				"category": "frontend"
+			},
+			{
+				"name": "react-dom",
+				"version": "19.1.0",
+				"category": "frontend"
+			},
+			{
+				"name": "vite",
+				"version": "6.2.0",
+				"category": "build"
+			}
+		],
+		"packageManager": "pnpm",
+		"runtime": "Node.js 20.*"
+	},
+	"build": {
+		"buildCommand": "pnpm build",
+		"testCommand": null,
+		"lintCommand": null,
+		"devCommand": "pnpm dev",
+		"scripts": {
+			"dev": "vite",
+			"build": "tsc && vite build",
+			"preview": "vite preview",
+			"preinstall": "lefthook install"
+		}
+	},
+	"conventions": {
+		"namingStyle": null,
+		"importStyle": null,
+		"testPattern": null,
+		"fileOrganization": "type-based"
+	},
+	"structure": {
+		"isMonorepo": false,
+		"workspaces": [],
+		"mainDirectories": ["public", "src"],
+		"gitBranches": {
+			"defaultBranch": "main",
+			"branchingStrategy": null
+		}
+	},
+	"customNotes": [],
+	"directoryMap": {
+		"public": {
+			"path": "public",
+			"purpose": "Public files",
+			"fileCount": 1,
+			"lastAccessed": 1775144121469,
+			"keyFiles": ["mockServiceWorker.js"]
+		},
+		"src": {
+			"path": "src",
+			"purpose": "Source code",
+			"fileCount": 5,
+			"lastAccessed": 1775144121470,
+			"keyFiles": ["App.tsx", "global-config.ts", "global.css", "main.tsx", "vite-env.d.ts"]
+		},
+		"src/api": {
+			"path": "src/api",
+			"purpose": "API routes",
+			"fileCount": 1,
+			"lastAccessed": 1775144121477,
+			"keyFiles": ["apiClient.ts"]
+		},
+		"src/assets": {
+			"path": "src/assets",
+			"purpose": "Static assets",
+			"fileCount": 0,
+			"lastAccessed": 1775144121479,
+			"keyFiles": []
+		},
+		"src/components": {
+			"path": "src/components",
+			"purpose": "UI components",
+			"fileCount": 0,
+			"lastAccessed": 1775144121480,
+			"keyFiles": []
+		}
+	},
+	"hotPaths": [
+		{
+			"path": "src",
+			"accessCount": 32,
+			"lastAccessed": 1775148530469,
+			"type": "directory"
+		},
+		{
+			"path": "src/store/userStore.ts",
+			"accessCount": 6,
+			"lastAccessed": 1775148053888,
+			"type": "file"
+		},
+		{
+			"path": "src/layouts/dashboard/main.tsx",
+			"accessCount": 6,
+			"lastAccessed": 1775148567506,
+			"type": "file"
+		},
+		{
+			"path": "package.json",
+			"accessCount": 5,
+			"lastAccessed": 1775146827011,
+			"type": "file"
+		},
+		{
+			"path": "vite.config.ts",
+			"accessCount": 5,
+			"lastAccessed": 1775146833788,
+			"type": "file"
+		},
+		{
+			"path": "",
+			"accessCount": 4,
+			"lastAccessed": 1775146406907,
+			"type": "directory"
+		},
+		{
+			"path": "src/theme/adapter/antd.adapter.tsx",
+			"accessCount": 4,
+			"lastAccessed": 1775146509321,
+			"type": "file"
+		},
+		{
+			"path": "src/App.tsx",
+			"accessCount": 4,
+			"lastAccessed": 1775148053450,
+			"type": "file"
+		},
+		{
+			"path": "src/store/settingStore.ts",
+			"accessCount": 3,
+			"lastAccessed": 1775146543621,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/dashboard/backend.tsx",
+			"accessCount": 3,
+			"lastAccessed": 1775148024445,
+			"type": "file"
+		},
+		{
+			"path": "src/pages/sys/login/login-form.tsx",
+			"accessCount": 3,
+			"lastAccessed": 1775148049533,
+			"type": "file"
+		},
+		{
+			"path": "src/main.tsx",
+			"accessCount": 3,
+			"lastAccessed": 1775148375958,
+			"type": "file"
+		},
+		{
+			"path": "src/api/apiClient.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775146393078,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/index.tsx",
+			"accessCount": 2,
+			"lastAccessed": 1775146553617,
+			"type": "file"
+		},
+		{
+			"path": "src/theme/theme-provider.tsx",
+			"accessCount": 2,
+			"lastAccessed": 1775146738412,
+			"type": "file"
+		},
+		{
+			"path": "src/types/entity.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775146746170,
+			"type": "file"
+		},
+		{
+			"path": "src/api/services/userService.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775146802677,
+			"type": "file"
+		},
+		{
+			"path": "src/global-config.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775146810951,
+			"type": "file"
+		},
+		{
+			"path": "src/types/enum.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775147165153,
+			"type": "file"
+		},
+		{
+			"path": "src/components/auth/use-auth.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775147172482,
+			"type": "file"
+		},
+		{
+			"path": "src/_mock/assets.ts",
+			"accessCount": 2,
+			"lastAccessed": 1775147918043,
+			"type": "file"
+		},
+		{
+			"path": "src/pages/sys/others/permission/index.tsx",
+			"accessCount": 2,
+			"lastAccessed": 1775148023212,
+			"type": "file"
+		},
+		{
+			"path": "src/layouts/dashboard/multi-tabs/hooks/use-tab-label-render.tsx",
+			"accessCount": 2,
+			"lastAccessed": 1775148029647,
+			"type": "file"
+		},
+		{
+			"path": "src/pages/management/system/role/role-modal.tsx",
+			"accessCount": 2,
+			"lastAccessed": 1775148030667,
+			"type": "file"
+		},
+		{
+			"path": "tsconfig.json",
+			"accessCount": 1,
+			"lastAccessed": 1775144534970,
+			"type": "file"
+		},
+		{
+			"path": "biome.json",
+			"accessCount": 1,
+			"lastAccessed": 1775144535847,
+			"type": "file"
+		},
+		{
+			"path": ".claude/settings.local.json",
+			"accessCount": 1,
+			"lastAccessed": 1775144634702,
+			"type": "file"
+		},
+		{
+			"path": "src/types/api.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775144642793,
+			"type": "file"
+		},
+		{
+			"path": "src/theme/type.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775144782682,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/auth.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775144782856,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/main.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775144783588,
+			"type": "file"
+		},
+		{
+			"path": "src/locales/i18n.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775144792935,
+			"type": "file"
+		},
+		{
+			"path": "tailwind.config.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775144944792,
+			"type": "file"
+		},
+		{
+			"path": "components.json",
+			"accessCount": 1,
+			"lastAccessed": 1775144970523,
+			"type": "file"
+		},
+		{
+			"path": "CLAUDE.md",
+			"accessCount": 1,
+			"lastAccessed": 1775145196496,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/dashboard/index.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146560765,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/dashboard/frontend.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146567538,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/sections/dashboard/utils.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146575327,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/components/login-auth-guard.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146716349,
+			"type": "file"
+		},
+		{
+			"path": "src/types",
+			"accessCount": 1,
+			"lastAccessed": 1775146731178,
+			"type": "directory"
+		},
+		{
+			"path": "src/layouts/components/notice.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146842398,
+			"type": "file"
+		},
+		{
+			"path": "src/pages/dashboard/analysis/index.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146850673,
+			"type": "file"
+		},
+		{
+			"path": "src/layouts/components/setting-button.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775146860027,
+			"type": "file"
+		},
+		{
+			"path": "src/_mock/assets_backup.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775147190265,
+			"type": "file"
+		},
+		{
+			"path": "src/_mock",
+			"accessCount": 1,
+			"lastAccessed": 1775147200281,
+			"type": "directory"
+		},
+		{
+			"path": "src/_mock/index.ts",
+			"accessCount": 1,
+			"lastAccessed": 1775147206085,
+			"type": "file"
+		},
+		{
+			"path": "src/routes/components/error-boundary.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775147250898,
+			"type": "file"
+		},
+		{
+			"path": "src/components/auth/auth-guard.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775147278237,
+			"type": "file"
+		},
+		{
+			"path": "src/layouts/dashboard/index.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775147288389,
+			"type": "file"
+		},
+		{
+			"path": "src/components/editor/index.tsx",
+			"accessCount": 1,
+			"lastAccessed": 1775147296952,
+			"type": "file"
+		}
+	],
+	"userDirectives": []
+}

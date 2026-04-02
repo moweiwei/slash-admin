@@ -3,7 +3,6 @@ import { Badge } from "@/ui/badge";
 import { Button } from "@/ui/button";
 import { Card, CardContent, CardHeader } from "@/ui/card";
 import Table, { type ColumnsType } from "antd/es/table";
-import { isNil } from "ramda";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Permission_Old } from "#/entity";
@@ -55,7 +54,7 @@ export default function PermissionPage() {
 			dataIndex: "icon",
 			width: 60,
 			render: (icon: string) => {
-				if (isNil(icon)) return "";
+				if (icon == null) return "";
 				if (icon.startsWith("ic")) {
 					return <Icon icon={`local:${icon}`} size={18} className="ant-menu-item-icon" />;
 				}
@@ -71,7 +70,11 @@ export default function PermissionPage() {
 			dataIndex: "status",
 			align: "center",
 			width: 120,
-			render: (status) => <Badge variant={status === BasicStatus.DISABLE ? "error" : "success"}>{status === BasicStatus.DISABLE ? "Disable" : "Enable"}</Badge>,
+			render: (status) => (
+				<Badge variant={status === BasicStatus.DISABLE ? "error" : "success"}>
+					{status === BasicStatus.DISABLE ? "Disable" : "Enable"}
+				</Badge>
+			),
 		},
 		{ title: "Order", dataIndex: "order", width: 60 },
 		{
@@ -124,7 +127,14 @@ export default function PermissionPage() {
 				</div>
 			</CardHeader>
 			<CardContent>
-				<Table rowKey="id" size="small" scroll={{ x: "max-content" }} pagination={false} columns={columns} dataSource={[]} />
+				<Table
+					rowKey="id"
+					size="small"
+					scroll={{ x: "max-content" }}
+					pagination={false}
+					columns={columns}
+					dataSource={[]}
+				/>
 			</CardContent>
 			<PermissionModal {...permissionModalProps} />
 		</Card>

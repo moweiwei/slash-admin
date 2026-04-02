@@ -1,5 +1,4 @@
 import useLocale from "@/locales/use-locale";
-import { StyleProvider } from "@ant-design/cssinjs";
 import type { ThemeConfig } from "antd";
 import { App, ConfigProvider, theme } from "antd";
 import { ThemeMode } from "#/enum";
@@ -60,18 +59,18 @@ export const AntdAdapter: UILibraryAdapter = ({ mode, children }) => {
 			locale={language.antdLocal}
 			theme={{ algorithm, token, components }}
 			tag={{
-				style: {
-					borderRadius: removePx(baseThemeTokens.borderRadius.md),
-					fontWeight: 700,
-					padding: `0 ${baseThemeTokens.spacing[1]}`,
-					margin: `0 ${baseThemeTokens.spacing[1]}`,
-					borderWidth: 0,
+				styles: {
+					root: {
+						borderRadius: removePx(baseThemeTokens.borderRadius.md),
+						fontWeight: 700,
+						padding: `0 ${baseThemeTokens.spacing[1]}`,
+						margin: `0 ${baseThemeTokens.spacing[1]}`,
+						borderWidth: 0,
+					},
 				},
 			}}
 		>
-			<StyleProvider hashPriority="high">
-				<App>{children}</App>
-			</StyleProvider>
+			<App>{children}</App>
 		</ConfigProvider>
 	);
 };

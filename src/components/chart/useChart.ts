@@ -1,7 +1,7 @@
 import { themeVars } from "@/theme/theme.css";
 import { removePx, rgbAlpha } from "@/utils/theme";
 import type { ApexOptions } from "apexcharts";
-import { mergeDeepRight } from "ramda";
+import { deepMerge } from "@/utils/deep-merge";
 
 import { useSettings } from "@/store/settingStore";
 import { breakpointsTokens } from "@/theme/tokens/breakpoints";
@@ -12,7 +12,7 @@ export function useChart(options: ApexOptions) {
 	const { themeColorPresets, themeMode } = useSettings();
 
 	const baseOptions = baseCharOptions(themeMode, themeColorPresets) ?? {};
-	return mergeDeepRight(baseOptions, options) as ApexOptions;
+	return deepMerge(baseOptions, options) as ApexOptions;
 }
 
 const baseCharOptions = (themeMode: ThemeMode, themeColorPresets: ThemeColorPresets): ApexOptions => {

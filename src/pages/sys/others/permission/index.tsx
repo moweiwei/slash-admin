@@ -1,4 +1,4 @@
-import { DB_USER } from "@/_mock/assets_backup";
+import { DB_USER } from "@/_mock/assets";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { useAuthCheck } from "@/components/auth/use-auth";
 import { CodeBlock } from "@/components/code/code-bock";

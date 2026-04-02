@@ -1,4 +1,4 @@
-import { DB_USER } from "@/_mock/assets_backup";
+import { DB_USER } from "@/_mock/assets";
 import type { SignInReq } from "@/api/services/userService";
 import { Icon } from "@/components/icon";
 import { GLOBAL_CONFIG } from "@/global-config";
@@ -20,15 +20,15 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 	const { t } = useTranslation();
 	const [loading, setLoading] = useState(false);
 	const [remember, setRemember] = useState(true);
-	const navigatge = useNavigate();
+	const navigate = useNavigate();
 
 	const { loginState, setLoginState } = useLoginStateContext();
 	const signIn = useSignIn();
 
 	const form = useForm<SignInReq>({
 		defaultValues: {
-			username: DB_USER[0].username,
-			password: DB_USER[0].password,
+			username: import.meta.env.DEV ? DB_USER[0].username : "",
+			password: import.meta.env.DEV ? DB_USER[0].password : "",
 		},
 	});
 
@@ -38,7 +38,7 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 		setLoading(true);
 		try {
 			await signIn(values);
-			navigatge(GLOBAL_CONFIG.defaultRoute, { replace: true });
+			navigate(GLOBAL_CONFIG.defaultRoute, { replace: true });
 			toast.success(t("sys.login.loginSuccessTitle"), {
 				closeButton: true,
 			});

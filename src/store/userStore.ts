@@ -49,8 +49,10 @@ const useUserStore = create<UserStore>()(
 
 export const useUserInfo = () => useUserStore((state) => state.userInfo);
 export const useUserToken = () => useUserStore((state) => state.userToken);
-export const useUserPermissions = () => useUserStore((state) => state.userInfo.permissions || []);
-export const useUserRoles = () => useUserStore((state) => state.userInfo.roles || []);
+const EMPTY_PERMISSIONS: NonNullable<UserInfo["permissions"]> = [];
+const EMPTY_ROLES: NonNullable<UserInfo["roles"]> = [];
+export const useUserPermissions = () => useUserStore((state) => state.userInfo.permissions ?? EMPTY_PERMISSIONS);
+export const useUserRoles = () => useUserStore((state) => state.userInfo.roles ?? EMPTY_ROLES);
 export const useUserActions = () => useUserStore((state) => state.actions);
 
 export const useSignIn = () => {
@@ -67,7 +69,8 @@ export const useSignIn = () => {
 			setUserToken({ accessToken, refreshToken });
 			setUserInfo(user);
 		} catch (err) {
-			toast.error(err.message, {
+			const message = err instanceof Error ? err.message : String(err);
+			toast.error(message, {
 				position: "top-center",
 			});
 			throw err;
